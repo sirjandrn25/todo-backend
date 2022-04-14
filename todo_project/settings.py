@@ -28,7 +28,7 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["dj-react-todo2022.herokuapp.com","localhost"]
 
 
 # Application definition
@@ -122,7 +122,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Asia/kathmandu'
+# TIME_ZONE = 'Asia/kathmandu'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
