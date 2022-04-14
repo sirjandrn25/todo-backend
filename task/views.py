@@ -46,9 +46,10 @@ class TaskViewSet(ModelViewSet):
 
 
 class UserRegisterApiView(GenericAPIView):
+    serializer_class = UserRegisterSerializer
     def post(self, request):
-        serializer = UserRegisterSerializer(data=request.data)
-
+        
+        serializer = self.serializer_class(data=request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(serializer.data, status=201)
@@ -56,8 +57,9 @@ class UserRegisterApiView(GenericAPIView):
 
 
 class UserLoginApiView(APIView):
+    serializer_class = UserLoginSerializer
     def post(self, request):
-        serializer = UserLoginSerializer(data=request.data)
+        serializer = self.serializer_class(data=request.data)
         if serializer.is_valid(raise_exception=True):
             user = serializer.validated_data['user']
             refresh = RefreshToken.for_user(user)
