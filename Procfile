@@ -1,2 +1,2 @@
-web: waitress-serve --port=$PORT backend.wsgi:application
-web: gunicorn backend.wsgi:application --log-file - --log-level debug
+web: waitress-serve --port=$PORT todo_project.wsgi:application
+web: gunicorn todo_project.wsgi:application --log-file - --log-level debug
